@@ -10,6 +10,8 @@ Sing me a song é uma aplicação para recomendação anômina de músicas. Quan
 
 Neste projeto você receberá um front-end e back-end completamente implementados! 😱
 
+- Projeto original: https://github.com/driven-projects/sing-me-a-song
+
 Seu trabalho será implementar os testes do projeto 🙂
 
 # Requisitos
