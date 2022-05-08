@@ -17,4 +17,12 @@ describe('Recommendations service', () => {
       await recommendationService.getRandom();
     }).rejects.toEqual(notFoundError());
   });
+
+  it('Should return notFoundError when there arent id recommendations on upvote', () => {
+    jest.spyOn(recommendationRepository, 'find').mockResolvedValue(null);
+
+    expect(async () => {
+      await recommendationService.upvote(1);
+    }).rejects.toEqual(notFoundError());
+  });
 });
