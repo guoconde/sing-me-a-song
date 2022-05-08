@@ -9,7 +9,7 @@ describe('Recommendations service', () => {
     jest.resetAllMocks();
   });
 
-  it('Should return notFoundError when there arent recommendations', () => {
+  it('Should return notFoundError when there arent recommendations on getRandom', () => {
     jest.spyOn(Math, 'random').mockReturnValue(0.6);
     jest.spyOn(recommendationRepository, 'findAll').mockResolvedValue([]);
 
