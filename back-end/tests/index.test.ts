@@ -146,3 +146,30 @@ describe('GET /recommendations/:id', () => {
     expect(response.body).toEqual(create);
   });
 });
+
+describe('POST /recommendations/:id/upvote', () => {
+  onStart();
+
+  it('Should return status 200 on upvote is done', async () => {
+    const body: CreateRecommendationData = {
+      name: '10 Coisas IMPRESSIONANTES Que Encontrei na Internet!!',
+      youtubeLink: 'https://www.youtube.com/watch?v=m26jErLd5ds',
+    };
+
+    const create = await prisma.recommendation.create({
+      data: { ...body },
+    });
+
+    const response = await supertest(app).post(`/recommendations/${create.id}/upvote`);
+
+    expect(response.status).toEqual(200);
+  });
+
+  it('Should return status 404 when unexisting upvote', async () => {
+    const id = 0;
+
+    const response = await supertest(app).post(`/recommendations/${id}/upvote`);
+
+    expect(response.status).toEqual(404);
+  });
+});
