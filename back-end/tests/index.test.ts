@@ -101,7 +101,7 @@ describe('GET /recommendations/random', () => {
 describe('GET /recommendations/top/:amount', () => {
   onStart();
 
-  it('Should return existent the top amount object on get tops recommendation', async () => {
+  it('Should return list of top amount recommendations', async () => {
     const amount = 2;
 
     const bodyScore10 = {
@@ -125,5 +125,24 @@ describe('GET /recommendations/top/:amount', () => {
     const response = await supertest(app).get(`/recommendations/top/${amount}`);
 
     expect(response.body.length).toBeGreaterThanOrEqual(amount);
+  });
+});
+
+describe('GET /recommendations/:id', () => {
+  onStart();
+
+  it('Should return an item by id', async () => {
+    const body: CreateRecommendationData = {
+      name: '10 Coisas IMPRESSIONANTES Que Encontrei na Internet!!',
+      youtubeLink: 'https://www.youtube.com/watch?v=m26jErLd5ds',
+    };
+
+    const create = await prisma.recommendation.create({
+      data: { ...body },
+    });
+
+    const response = await supertest(app).get(`/recommendations/${create.id}`);
+
+    expect(response.body).toEqual(create);
   });
 });
