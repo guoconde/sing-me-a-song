@@ -92,10 +92,38 @@ describe('GET /recommendations/random', () => {
 
     const create = await prisma.recommendation.create({ data: { ...body } });
 
-    console.log(create);
-
     const response = await supertest(app).get('/recommendations/random');
 
     expect(response.body).toEqual(create);
+  });
+});
+
+describe('GET /recommendations/top/:amount', () => {
+  onStart();
+
+  it('Should return existent the top amount object on get tops recommendation', async () => {
+    const amount = 2;
+
+    const bodyScore10 = {
+      name: '10 Coisas IMPRESSIONANTES Que Encontrei na Internet!!',
+      youtubeLink: 'https://www.youtube.com/watch?v=m26jErLd5ds',
+      score: 10,
+    };
+    const bodyScore0 = {
+      name: 'Como ser um usuário Linux Avançado? - O que estudar exatamente?',
+      youtubeLink: 'https://www.youtube.com/watch?v=SAbyTbP2bjw',
+    };
+    const bodyScore05 = {
+      name: 'NO, pequeno e LEVE // MSI Modern 14',
+      youtubeLink: 'https://www.youtube.com/watch?v=Q5k-vp8OQjE',
+    };
+
+    await prisma.recommendation.createMany({
+      data: [{ ...bodyScore10 }, { ...bodyScore0 }, { ...bodyScore05 }],
+    });
+
+    const response = await supertest(app).get(`/recommendations/top/${amount}`);
+
+    expect(response.body.length).toBeGreaterThanOrEqual(amount);
   });
 });
