@@ -67,6 +67,10 @@ async function remove(id: number) {
   });
 }
 
+async function truncate() {
+  await prisma.$executeRaw`TRUNCATE TABLE recommendations`;
+}
+
 export const recommendationRepository = {
   create,
   findAll,
@@ -75,4 +79,5 @@ export const recommendationRepository = {
   updateScore,
   getAmountByScore,
   remove,
+  truncate,
 };
