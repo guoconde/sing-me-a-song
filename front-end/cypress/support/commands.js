@@ -11,6 +11,15 @@
 //
 // -- This is a parent command --
 // Cypress.Commands.add('login', (email, password) => { ... })
+Cypress.Commands.add('resetDatabase', () => {
+  cy.request('POST', 'http://localhost:5000/reset');
+});
+
+Cypress.Commands.add('insertRecommendation', (recommendation) => {
+  cy.get('#name').type(recommendation.name);
+  cy.get('#link').type(recommendation.youtubeLink);
+  cy.get('#btn').click();
+});
 //
 //
 // -- This is a child command --
