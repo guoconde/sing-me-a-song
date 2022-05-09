@@ -24,9 +24,49 @@ Seu trabalho será implementar os testes do projeto 🙂
 
 ## Available Scripts:
 
-On developemnt
+#### Para executar a aplicação:
 
-### Tecnologias utilizadas:
+#### Clonar a aplicação para seu ambiente:
+
+- git clone
+
+#### Instalar todas as dependências do projeto:
+
+- npm i (faça isso tanto para a pasta de front-end quanto back end - certifique-se que está rodando dentro da pasta correta)
+
+#### Criar as migrações no ambiente de testes:
+
+- Acesse a pasta do back-end e rode o comando:
+- npm run migrate:test
+
+#### Iniciar o servidor no ambiente de testes:
+
+- Ainda dentro da pasta do back-end rode o comando:
+- npm run dev:test
+
+#### Rodar os testes do jest:
+
+- Ainda dentro da pasta do back-end rode o comando:
+- npm test
+- Acompanhe o terminal enquanto os testes são feitos.
+
+#### Iniciar os testes de front-end com cypress:
+
+- Certifique-se que esta dentro da pasta do front-end e ja tenha instalado as dependências, como descrito na segunda instrução
+- Rode o comando abaixo para abrir a interface gráfica do crypress:
+- npx cypress open
+
+#### Na plataforma do cypress escolha o teste que deseja iniciar e click na desejada:
+
+- downvote (para testar a função de dislike)
+- upvote (para testar a função de like)
+- home (para testar a função de inserir três recomendações de videos)
+- random (para testar a função receber uma recomendação aleatória)
+- top (para testar a função dos top videos)
+
+### Qualquer dúvida, problemas ou sugestões por favor entre em contato.
+
+## Tecnologias utilizadas:
 
 <p align="left">
   <a href="https://www.w3schools.com/css/" target="_blank"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> 
