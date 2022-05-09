@@ -2,8 +2,6 @@
 
 ### Descritivo:
 
-#### Neste projeto, meu objetivo é relizar os testes necessários em uma aplicação pronta.
-
 Já pediu para alguém alguma recomendação de música? Chegou a hora de transformar isso em código. Nessa semana, você vai construir a rede Sing me a Song. Ou melhor, os testes desta rede!
 
 Sing me a song é uma aplicação para recomendação anômina de músicas. Quanto mais as pessoas curtirem uma recomendação, maior a chance dela ser recomendada para outras pessoas 🙂
