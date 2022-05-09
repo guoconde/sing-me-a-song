@@ -22,7 +22,7 @@ Seu trabalho será implementar os testes do projeto 🙂
 - Escreva testes unitários para a camada de Services com 100% de coverage
   - Atenção para mockar a camada de Repositories e dependências externas (dica: `Math.random`)
 
-## Available Scripts:
+## Comandos necessários:
 
 #### Para executar a aplicação:
 
