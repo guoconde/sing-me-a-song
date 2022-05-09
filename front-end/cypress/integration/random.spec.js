@@ -1,25 +1,25 @@
-/// <reference types='cypress' />
-
 import recommendationFactory from './factories/recommendationFactory.js';
 
-describe('Home /', () => {
+describe('Random /random', () => {
   beforeEach(() => {
     cy.resetDatabase();
   });
 
-  it('Should insert recommendations', () => {
+  it('Should test upvote rote', () => {
     const recommendation = recommendationFactory();
+
     cy.visit('localhost:3000');
 
     cy.intercept('POST', '/recommendations').as('getRecommendations');
     cy.insertRecommendation(recommendation[0]);
+    cy.contains(recommendation[0].name);
 
-    cy.intercept('POST', '/recommendations').as('getRecommendations2');
-    cy.wait('@getRecommendations');
-    cy.insertRecommendation(recommendation[1]);
+    cy.intercept('GET', '/random').as('getRandom');
 
-    cy.wait('@getRecommendations2');
-    cy.insertRecommendation(recommendation[2]);
+    cy.visit('localhost:3000/random');
+    cy.wait('@getRandom');
+
+    cy.contains(recommendation[0].name);
 
     cy.end();
   });
